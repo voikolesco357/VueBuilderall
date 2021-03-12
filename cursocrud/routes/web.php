@@ -24,8 +24,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    return Inertia::render('Dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {//cria um grupo de rotas
+    Route::get('/dashboard', fn() => Inertia::render('Dashboard'))->name('dashboard');
 
     Route::apiResource('/contacts', ContactController::class)->except(['show']);
 });
