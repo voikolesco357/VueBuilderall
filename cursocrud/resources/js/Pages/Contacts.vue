@@ -31,6 +31,14 @@
                             <label for="birthday">Birthday: </label>
                             <input id="birthday" type="date" v-model="form.name" placeholder="Enter birthday" class="rounded w-full"/>
                         </div>
+                        <div class="mb-4">
+                            <label for="type">Type:</label>
+                            <select id="type" v-model="form.type" class="rounded w-full">
+                                <option v-for="option in types" v-bind:key="option.value">
+                                    {{ option.text }}
+                                </option>
+                            </select>
+                        </div>
                         <div>
                             <button class="bg-red-500 text-white p-2 rounded" @click="closeModal()">Cancel</button>
                         </div>
@@ -55,7 +63,17 @@ export default {
                 email: null,
                 birthday: null,
                 type: 1,
-            }
+            },
+            types: [
+                { text: 'Pessoal'   , value: '1' },
+                { text: 'Celular'   , value: '2' },
+                { text: 'Casa'      , value: '3' },
+                { text: 'Comercial' , value: '4' },
+                { text: 'Principal' , value: '5' },
+                { text: 'Secundário', value: '6' },
+                { text: 'Fax'       , value: '7' },
+                { text: 'Outro'     , value: '8' },
+            ]
         }
     },
     components: {
