@@ -40,6 +40,7 @@
                             </select>
                         </div>
                         <div>
+                            <button class="bg-green-500 text-white p-2 rounded" @click="closeModal()">Save</button>
                             <button class="bg-red-500 text-white p-2 rounded" @click="closeModal()">Cancel</button>
                         </div>
                     </div>
@@ -82,10 +83,19 @@ export default {
     },
     methods: {
         closeModal() {
+            this.reset();
             this.isOpen = false;
         },
         openModal() {
+            this.reset();
             this.isOpen = true;
+        },
+        reset(){
+            this.form.name = null;
+            this.form.phone = null;
+            this.form.email = null;
+            this.form.birthday = null;
+            this.form.type = 1;
         }
     }
 }
